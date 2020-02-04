@@ -1,0 +1,61 @@
+import React, { useState } from "react";
+import { StyleSheet, Text, View, Button, FlatList, TouchableOpacity, TouchableOpacityBase } from "react-native";
+
+export default function App() {
+  const [people, setPeople] = useState([
+    { name: "Bile", key: "1" },
+    { name: "Istahil", key: "2" },
+    { name: "Zakaria", key: "4" },
+    { name: "Abdirashid", key: "5" },
+    { name: "Ayan", key: "6" },
+    { name: "Amina", key: "7" },
+    { name: "Rayan", key: "8" },
+    { name: "Bashir", key: "9" },
+    { name: "Ahmed", key: "10" }
+  ]);
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>MY FAMILY LIST</Text>
+      <FlatList
+        data={people}
+        renderItem={({item}) => (
+          <TouchableOpacity>
+             <Text style={styles.item}>{item.name}</Text>
+          </TouchableOpacity>
+         
+        )}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#6a19e3",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  title: {
+    textAlign: "left",
+    backgroundColor: "#048eb0",
+    marginTop: 50,
+    width: 400,
+    padding: 10,
+    fontSize: 20,
+    color: "#fff",
+    fontWeight: "bold",
+  },
+
+  item: {
+    backgroundColor: "#00c6f7",
+    marginTop: 20,
+    width: 400,
+    padding: 20,
+    fontSize: 20
+  },
+  btn: {
+    marginTop: 16,
+    padding: 20
+  }
+});
